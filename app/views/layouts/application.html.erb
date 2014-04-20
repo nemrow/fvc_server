@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FvcServer</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+<%= javascript_include_tag "model" %>
+<%= javascript_include_tag "view" %>
+<%= javascript_include_tag "controller" %>
+
+</body>
+</html>
