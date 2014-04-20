@@ -6,7 +6,12 @@ FvcServer::Application.routes.draw do
 
   match "user/create_session"
 
-  match "schedule/load_events"
+
+  namespace :api do
+    namespace :v1 do
+      match "load_events" => "schedule#load_events"
+    end
+  end
 
   root :to => 'events#index'
   resources :events
