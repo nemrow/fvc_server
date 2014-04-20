@@ -24,7 +24,7 @@ var Controller = {
   },
 
   validateTime: function (value) {
-    return value.match(/\d{1,2}:\d{1,2} pm|am/)
+    return value.match(/\d{1,2}:\d{1,2} (?:pm|am)/)
   },
 
   formatInitTimeOfDay: function () {

@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   def index
     if session[:user_id]
-      @events = Event.all
+      @events = Event.sorted_events
     else
       redirect_to user_login_path
     end
@@ -13,8 +13,6 @@ class EventsController < ApplicationController
   end
 
   def update
-    debugger
-    # ROUTING NOT WORKING
     event = Event.find(params[:id])
     event.update_attributes(params[:event])
     redirect_to event_path(params[:id])

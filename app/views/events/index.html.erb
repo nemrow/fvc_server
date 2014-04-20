@@ -1,11 +1,14 @@
 <h1>All events</h1>
 <%= link_to "new event", new_event_path %>
 
-<% @events.each do |event| %>
-  <h2><%= event.title %></h2>
-  <h5><%= event.description %></h5>
-  <p><%= event.min_time %><br>
-  <p><%= event.duration %><br>
-  <%= link_to "edit", edit_event_path(event) %>
+<% @events.each do |days_events| %>
+  <h2><%= days_events[:day] %></h2>
+  <% days_events[:events].each do |event| %>
+    <h3><%= event.title %></h3>
+    <h5><%= event.description %></h5>
+    <p><%= event.min_time ? event.min_time.formatted_time : "NA" %><br>
+    <p><%= event.duration ? event.duration.formatted_hours : "NA" %><br>
+    <%= link_to "edit", edit_event_path(event) %>
+  <% end %>
   <hr>
 <% end %>
