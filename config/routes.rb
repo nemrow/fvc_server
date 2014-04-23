@@ -9,7 +9,7 @@ FvcServer::Application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      match "load_events" => "schedule#load_events"
+      match "load_data" => "schedule#load_events"
     end
   end
 
