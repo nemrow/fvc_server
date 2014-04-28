@@ -5,7 +5,10 @@ module Api
       after_filter :cors_set_access_control_headers
 
       def load_events
-        render :json => {:schedule => Event.sorted_events.to_json}
+        render :json => {
+          :schedule => Event.sorted_events.to_json,
+          :todaysOffset => DayMapper.todays_offset
+        }
       end
 
       private

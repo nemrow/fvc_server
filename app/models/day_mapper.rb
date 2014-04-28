@@ -4,19 +4,33 @@ class DayMapper
   end
 
   def day
-    mapper(@day_index)
+    get_day(@day_index)
+  end
+
+  def self.todays_offset
+    get_index
   end
 
   private
-    def mapper(day_index)
-      case day_index
-      when 0 then "Saturday"
-      when 1 then "Sunday"
-      when 2 then "Monday"
-      when 3 then "Tuesday"
-      when 4 then "Wednesday"
-      when 5 then "Thursday"
-      when 6 then "Friday"
-      end
+    DAYS = [
+      "Saturday",
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ]
+
+    def self.today
+      Time.now.strftime("%A")
+    end
+
+    def self.get_index
+      DAYS.index(today)
+    end
+
+    def get_day(day_index)
+      DAYS[day_index]
     end
 end
