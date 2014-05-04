@@ -3,12 +3,26 @@
 
 <% @events.each do |days_events| %>
   <h2><%= days_events[:day] %></h2>
-  <% days_events[:events].each do |event| %>
-    <h3><%= event.title %></h3>
-    <h5><%= event.description %></h5>
-    <p><%= event.min_time ? event.min_time.formatted_time : "NA" %><br>
-    <p><%= event.duration ? event.duration.formatted_hours : "NA" %><br>
-    <%= link_to "edit", edit_event_path(event) %>
-  <% end %>
-  <hr>
+  <table class="pure-table">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Extra Cost</th>
+      <th>All FVC</th>
+      <th>Registration Required</th>
+      <th>Start Time</th>
+      <th>Duration</th>
+    </tr>
+    <% days_events[:events].each do |event| %>
+      <tr>
+        <td><%= link_to event.title, edit_event_path(event) %></td>
+        <td><%= event.description %></td>
+        <td><%= event.extra_cost %></td>
+        <td><%= event.all_fvc %></td>
+        <td><%= event.reg_required %></td>
+        <td><%= event.min_time ? event.min_time.formatted_time : "NA" %></td>
+        <td><%= event.duration ? event.duration.formatted_hours : "NA" %></td>
+      </tr>
+    <% end %>
+  </table>
 <% end %>

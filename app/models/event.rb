@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :min_time, :duration, :day_index, :description, :title
+  attr_accessible :min_time, :duration, :day_index, :description, :title, :all_fvc, :extra_cost, :reg_required
 
   def self.sorted_events
     days_events_hash = {}

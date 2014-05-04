@@ -1,12 +1,56 @@
 <%= form_for :event, :url => event_path, :method => :put do |f| %>
-    <%= f.text_field "title", :placeholder => "Title" %><br>
-    <%= f.text_area "description", :placeholder => "Description" %><br>
-    <%= f.select "day_index", options_for_select(@days, @event.day_index) %><br>
-    <label>Time</label>
-    <%= f.text_field 'min_time', :id => "time-input", :class => "time-input", :placeholder => "ex: 12:23 pm" %><br>
-    <label>Duration</label>
-    <%= f.text_field 'duration', :id => "duration-input", :class => "time-input", :placeholder => "ex: 2:30" %><br>
-    <%= f.submit "Update Event" %>
+  <table class="pure-table pure-table-bordered">
+    <tr>
+      <td>Title</td>
+      <td>
+        <%= f.text_field "title", :placeholder => "Title" %><br>
+      </td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>
+        <%= f.text_area "description", :placeholder => "Description" %><br>
+      </td>
+    </tr>
+    <tr>
+      <td>Day</td>
+      <td>
+        <%= f.select "day_index", options_for_select(@days, @event.day_index) %><br>
+      </td>
+    </tr>
+    <tr>
+      <td>Start Time</td>
+      <td>
+      <%= f.text_field 'min_time', :id => "time-input", :class => "time-input", :placeholder => "ex: 12:23 pm" %>
+      </td>
+    </tr>
+    <tr>
+      <td>Duration</td>
+      <td>
+        <%= f.text_field 'duration', :id => "duration-input", :class => "time-input", :placeholder => "ex: 2:30" %>
+      </td>
+    </tr>
+    <tr>
+      <td>Extra Cost?</td>
+      <td>
+        <%= f.check_box 'extra_cost' %>
+      </td>
+    </tr>
+    <tr>
+      <td>All FVC?</td>
+      <td>
+        <%= f.check_box 'all_fvc' %>
+      </td>
+    </tr>
+    <tr>
+      <td>Reg Required?</td>
+      <td>
+        <%= f.check_box 'reg_required' %>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <%= f.submit "Update Event", :class => "pure-button pure-button-primary" %>
 <% end %>
 
 <script type="text/javascript">

@@ -1,2 +1,47 @@
-<h1><%= @event.title %></h1>
-<p><%= @event.description %></p>
+<table class="pure-table pure-table-bordered">
+  <tr>
+    <td>Title</td>
+    <td><%= @event.title %><br>
+    </td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td><%= @event.description %></td>
+  </tr>
+  <tr>
+    <td>Day</td>
+    <td><%= @event.day_index %></td>
+  </tr>
+  <tr>
+    <td>Start Time</td>
+   <td><%= @event.min_time %></td>
+  </tr>
+  <tr>
+    <td>Duration</td>
+    <td><%= @event.duration %></td>
+  </tr>
+  <tr>
+    <td>Extra Cost?</td>
+    <td><%= @event.extra_cost %></td>
+  </tr>
+  <tr>
+    <td>All FVC?</td>
+   <td><%= @event.all_fvc %></td>
+  </tr>
+  <tr>
+    <td>Reg Required?</td>
+    <td><%= @event.reg_required %></td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    View.timeInput.addEventListener("blur", function () {
+      Controller.formatTimeInput();
+    });
+    View.durationInput.addEventListener("blur", function () {
+      Controller.formatDurationInput();
+    });
+    Controller.formatTimesFromServer();
+  });
+</script>
