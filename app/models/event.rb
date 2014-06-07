@@ -4,8 +4,8 @@ class Event < ActiveRecord::Base
   before_save :create_max_time
 
   def create_max_time
-    max_time = self.min_time + self.duration.hour.hours
-    self.max_time = max_time
+    duration_in_seconds = self.duration.hour.hours + self.duration.min.minutes
+    self.max_time = self.min_time + duration_in_seconds
   end
 
   def self.sorted_events
