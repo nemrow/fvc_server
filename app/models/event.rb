@@ -1,5 +1,12 @@
 class Event < ActiveRecord::Base
-  attr_accessible :min_time, :duration, :day_index, :description, :title, :all_fvc, :extra_cost, :reg_required
+  attr_accessible :min_time, :max_time, :duration, :day_index, :description, :title, :all_fvc, :extra_cost, :reg_required
+
+  before_save :create_max_time
+
+  def create_max_time
+    max_time = self.min_time + self.duration.hour.hours
+    self.max_time = max_time
+  end
 
   def self.sorted_events
     days_events_hash = {}

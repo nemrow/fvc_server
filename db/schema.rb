@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140504192303) do
+ActiveRecord::Schema.define(:version => 20140607171700) do
 
   create_table "events", :force => true do |t|
     t.datetime "min_time"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20140504192303) do
     t.boolean  "all_fvc",      :default => false
     t.boolean  "extra_cost",   :default => false
     t.boolean  "reg_required", :default => false
+    t.datetime "max_time"
   end
 
   create_table "users", :force => true do |t|
