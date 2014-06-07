@@ -21,13 +21,13 @@
     <tr>
       <td>Start Time</td>
       <td>
-      <%= f.text_field 'min_time', :id => "time-input", :class => "time-input", :placeholder => "ex: 12:23 pm" %>
+      <%= f.text_field 'min_time', :id => "time-input", :data => {:server_time => @event.min_time}, :class => "time-input", :placeholder => "ex: 12:23 pm" %>
       </td>
     </tr>
     <tr>
       <td>Duration</td>
       <td>
-        <%= f.text_field 'duration', :id => "duration-input", :class => "time-input", :placeholder => "ex: 2:30" %>
+        <%= f.text_field 'duration', :id => "duration-input", :data => {:server_time => @event.duration}, :class => "time-input", :placeholder => "ex: 2:30" %>
       </td>
     </tr>
     <tr>

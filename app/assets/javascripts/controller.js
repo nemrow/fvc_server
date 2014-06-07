@@ -29,10 +29,10 @@ var Controller = {
 
   formatInitTimeOfDay: function () {
     var timeElem = document.getElementById("time-input");
-    var time = timeElem.value;
+    var time = timeElem.dataset.serverTime;
     var hourMinute = Controller.getHourAndMinuteFromTime(time);
     var hour = hourMinute.hour
-    var minute = hourMinute.hour
+    var minute = hourMinute.minute
     var period = (hour <= 12) ? "am" : "pm"
     var displayHour = (period == "am") ? hour : (hour - 12)
     var timeString = displayHour + ":" + minute + " " + period
@@ -41,10 +41,10 @@ var Controller = {
 
   formatInitDuration: function () {
     var timeElem = document.getElementById("duration-input");
-    var time = timeElem.value;
+    var time = timeElem.dataset.serverTime;
     var hourMinute = Controller.getHourAndMinuteFromTime(time);
     var hour = hourMinute.hour
-    var minute = hourMinute.hour
+    var minute = hourMinute.minute
     timeString = hour + ":" + minute
     timeElem.value = timeString
   },
